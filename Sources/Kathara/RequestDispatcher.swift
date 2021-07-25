@@ -13,12 +13,12 @@ public class RequestDispatcher: RequestDispatcherProtocol {
 
     private var networkSession: NetworkSessionProtocol
 
-    required init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol) {
+    public required init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol) {
         self.environment = environment
         self.networkSession = networkSession
     }
 
-    func execute(request: RequestProtocol, completion: @escaping (OperationResult) -> Void) -> URLSessionTask? {
+    public func execute(request: RequestProtocol, completion: @escaping (OperationResult) -> Void) -> URLSessionTask? {
         guard var urlRequest = request.urlRequest(with: environment) else {
             completion(.error(NetworkError.badRequest("Invalid URL for: \(request)"), nil))
             return nil

@@ -14,15 +14,15 @@ public class NetworkOperation: OperationProtocol {
 
     internal var request: RequestProtocol
 
-    init(_ request: RequestProtocol) {
+    public init(_ request: RequestProtocol) {
         self.request = request
     }
 
-    func cancel() {
+    public func cancel() {
         task?.cancel()
     }
 
-    func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (OperationResult) -> Void) {
+    public func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (OperationResult) -> Void) {
         task = requestDispatcher.execute(request: request, completion: { result in
             completion(result)
         })
