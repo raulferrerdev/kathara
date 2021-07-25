@@ -7,13 +7,13 @@
 
 import Foundation
 
-class RequestDispatcher: RequestDispatcherProtocol {
+public class RequestDispatcher: RequestDispatcherProtocol {
 
     private var environment: EnvironmentProtocol
 
     private var networkSession: NetworkSessionProtocol
 
-    required init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol) {
+    public required init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol) {
         self.environment = environment
         self.networkSession = networkSession
     }

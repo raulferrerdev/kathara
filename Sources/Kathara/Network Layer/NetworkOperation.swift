@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkOperation: OperationProtocol {
+public class NetworkOperation: OperationProtocol {
     typealias Output = OperationResult
 
     private var task: URLSessionTask?
