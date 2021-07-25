@@ -11,7 +11,7 @@ typealias ReaquestHeaders = [String: String]
 typealias RequestParameters = [String : Any?]
 typealias ProgressHandler = (Float) -> Void
 
-protocol RequestProtocol {
+public protocol RequestProtocol {
     var path: String { get }
     var method: RequestMethod { get }
     var headers: ReaquestHeaders? { get }
