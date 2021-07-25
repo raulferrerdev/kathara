@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RequestDispatcherProtocol {
+public protocol RequestDispatcherProtocol {
 
     init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol)
 

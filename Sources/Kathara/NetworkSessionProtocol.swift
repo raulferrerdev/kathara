@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkSessionProtocol {
+public protocol NetworkSessionProtocol {
     func dataTask(with request: URLRequest,
                   completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask?
     

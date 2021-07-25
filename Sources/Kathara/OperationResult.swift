@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum OperationResult {
+public enum OperationResult {
     case json(_ : Any?, _ : HTTPURLResponse?)
     case file(_ : URL?, _ : HTTPURLResponse?)
     case error(_ : Error?, _ : HTTPURLResponse?)
