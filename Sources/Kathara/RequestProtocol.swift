@@ -7,9 +7,9 @@
 
 import Foundation
 
-typealias ReaquestHeaders = [String: String]
-typealias RequestParameters = [String : Any?]
-typealias ProgressHandler = (Float) -> Void
+public typealias ReaquestHeaders = [String: String]
+public typealias RequestParameters = [String : Any?]
+public typealias ProgressHandler = (Float) -> Void
 
 public protocol RequestProtocol {
     var path: String { get }

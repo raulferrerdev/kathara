@@ -13,7 +13,7 @@ public class RequestDispatcher: RequestDispatcherProtocol {
 
     private var networkSession: NetworkSessionProtocol
 
-    public required init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol) {
+    required init(environment: EnvironmentProtocol, networkSession: NetworkSessionProtocol) {
         self.environment = environment
         self.networkSession = networkSession
     }

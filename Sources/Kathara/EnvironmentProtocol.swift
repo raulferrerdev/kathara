@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EnvironmentProtocol {
+public protocol EnvironmentProtocol {
     var headers: ReaquestHeaders? { get }
     var baseURL: String { get }
 }

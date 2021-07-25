@@ -5,7 +5,7 @@
 //  Created by RaulF on 25/7/21.
 //
 
-enum ResponseType {
+public enum ResponseType {
     case json
     case file
 }
