@@ -1,3 +1,1 @@
-struct Kathara {
-    var text = "Hello, World!"
-}
+struct Kathara {}

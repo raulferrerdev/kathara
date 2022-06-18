@@ -20,21 +20,16 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
-
-protocol NetworkSessionProtocol {
-    
-    
-    
-    func dataTask(with request: URLRequest,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask?
-    
-    func downloadTask(request: URLRequest,
-                      progressHandler: ProgressHandler?,
-                      completionHandler: @escaping (URL?, URLResponse?, Error?) -> Void) -> URLSessionDownloadTask?
-    
-    func uploadTask(with request: URLRequest,
-                    from fileURL: URL,
-                    progressHandler: ProgressHandler?,
-                    completion: @escaping (Data?, URLResponse?, Error?)-> Void) -> URLSessionUploadTask?
+enum NetworkError: Error {
+    case noConn
+    case noData
+    case redirection
+    case info
+    case clientError
+    case fileNotFound
+    case invalidResponse
+    case badRequest
+    case serverError
+    case parseError
+    case unknown
 }

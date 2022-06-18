@@ -22,19 +22,8 @@
 
 import Foundation
 
-protocol NetworkSessionProtocol {
-    
-    
-    
-    func dataTask(with request: URLRequest,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask?
-    
-    func downloadTask(request: URLRequest,
-                      progressHandler: ProgressHandler?,
-                      completionHandler: @escaping (URL?, URLResponse?, Error?) -> Void) -> URLSessionDownloadTask?
-    
-    func uploadTask(with request: URLRequest,
-                    from fileURL: URL,
-                    progressHandler: ProgressHandler?,
-                    completion: @escaping (Data?, URLResponse?, Error?)-> Void) -> URLSessionUploadTask?
+public enum NetworkOperationResult {
+    case json(_ : Any?, _ : HTTPURLResponse?)
+    case file(_ : URL?, _ : HTTPURLResponse?)
+    case error(_ : Error?, _ : HTTPURLResponse?)
 }

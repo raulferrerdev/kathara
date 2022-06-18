@@ -1,28 +1,44 @@
+//  MIT License
 //
-//  File.swift
-//  
+//  Copyright (c) 2022 Raúl Ferrer García
 //
-//  Created by RaulF on 25/7/21.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import Foundation
 
-public class NetworkOperation: OperationProtocol {
-    typealias Output = OperationResult
+class NetworkOperation: NetworkOperationProtocol {
+    
+    typealias Output = NetworkOperationResult
 
     private var task: URLSessionTask?
 
     internal var request: RequestProtocol
 
-    public init(_ request: RequestProtocol) {
+    init(_ request: RequestProtocol) {
         self.request = request
     }
 
-    public func cancel() {
+    func cancel() {
         task?.cancel()
     }
 
-    public func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (OperationResult) -> Void) {
+    func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (NetworkOperationResult) -> Void) {
         task = requestDispatcher.execute(request: request, completion: { result in
             completion(result)
         })

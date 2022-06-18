@@ -22,19 +22,13 @@
 
 import Foundation
 
-protocol NetworkSessionProtocol {
+protocol NetworkOperationProtocol {
     
-    
-    
-    func dataTask(with request: URLRequest,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask?
-    
-    func downloadTask(request: URLRequest,
-                      progressHandler: ProgressHandler?,
-                      completionHandler: @escaping (URL?, URLResponse?, Error?) -> Void) -> URLSessionDownloadTask?
-    
-    func uploadTask(with request: URLRequest,
-                    from fileURL: URL,
-                    progressHandler: ProgressHandler?,
-                    completion: @escaping (Data?, URLResponse?, Error?)-> Void) -> URLSessionUploadTask?
+    associatedtype Output
+
+    var request: RequestProtocol { get }
+
+    func execute(in requestDispatcher: RequestDispatcherProtocol, completion: @escaping (Output) -> Void) ->  Void
+
+    func cancel() -> Void
 }
